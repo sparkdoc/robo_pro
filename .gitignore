@@ -1,0 +1,47 @@
+# Arduino
+*.hex
+*.eep
+*.elf
+*.map
+build/
+*.o
+*.a
+*.d
+
+# IDE files
+.DS_Store
+*.swp
+*.swo
+*~
+.vscode/
+*.code-workspace
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+env/
+*.egg-info/
+dist/
+build/
+
+# Logs
+*.log
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Documentation builds
+docs/_build/
+*.pdf
+
+# Temporary files
+tmp/
+temp/
+*.tmp
