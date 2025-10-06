@@ -82,6 +82,15 @@ Traditional Arduino IDE with graphical interface.
 
 See [ARDUINO_CLI_SETUP.md](ARDUINO_CLI_SETUP.md) for detailed commands and workflow.
 
+### Stopping a Running Program
+
+Programs run automatically on power-up. To stop motors:
+- **Emergency stop via serial**: Type `S` in serial monitor (most motor sketches support this)
+- **Physical stop**: Remove battery pack or unplug USB
+- **Upload blank sketch**: Prevents motors from running on startup
+
+See [examples/README.md](examples/README.md) for detailed stop instructions.
+
 ### Assembly
 
 1. **Assemble the robot** following the included instructions
