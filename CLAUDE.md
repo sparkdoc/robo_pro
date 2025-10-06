@@ -77,7 +77,9 @@ Motor ports (M1-M4) are configurable based on physical wiring. Always verify dur
 
 **Sensor Pin Conventions (VERIFIED):**
 - **Ultrasonic sensor**: Digital pin 2 (3-pin single signal connection)
-- **Line sensors**: Analog pins A0 (left) and A1 (right) (not yet verified)
+- **Line sensors**: Analog pins A0 (left) and A1 (right)
+  - **Important**: These IR sensors use inverted logic - HIGH values = dark/line, LOW values = light/surface
+  - Use `>` threshold for line detection, not `<`
 
 **Motor Shield Servo Header:**
 - Row labeled "1" → Arduino pin 10

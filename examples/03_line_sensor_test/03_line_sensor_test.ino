@@ -23,7 +23,7 @@ void setup() {
   pinMode(rightSensorPin, INPUT);
 
   Serial.println("Place robot on test surface");
-  Serial.println("Readings: < threshold = dark/line, > threshold = light/surface");
+  Serial.println("Readings: > threshold = dark/line, < threshold = light/surface");
   delay(2000);
 }
 
@@ -34,19 +34,19 @@ void loop() {
   Serial.print("Left: ");
   Serial.print(leftValue);
   Serial.print(" (");
-  Serial.print(leftValue < threshold ? "LINE" : "SURFACE");
+  Serial.print(leftValue > threshold ? "LINE" : "SURFACE");
   Serial.print(") | Right: ");
   Serial.print(rightValue);
   Serial.print(" (");
-  Serial.print(rightValue < threshold ? "LINE" : "SURFACE");
+  Serial.print(rightValue > threshold ? "LINE" : "SURFACE");
   Serial.println(")");
 
   // Line position indication
-  if (leftValue < threshold && rightValue < threshold) {
+  if (leftValue > threshold && rightValue > threshold) {
     Serial.println("  -> Both on line");
-  } else if (leftValue < threshold) {
+  } else if (leftValue > threshold) {
     Serial.println("  -> Line on LEFT");
-  } else if (rightValue < threshold) {
+  } else if (rightValue > threshold) {
     Serial.println("  -> Line on RIGHT");
   } else {
     Serial.println("  -> No line detected");
