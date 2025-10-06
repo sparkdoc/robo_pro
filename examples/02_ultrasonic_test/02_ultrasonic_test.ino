@@ -11,15 +11,15 @@
  */
 
 // Pin definitions - adjust based on your wiring
-const int trigPin = 9;
-const int echoPin = 10;
+// Sensor connected to digital pin 2
+const int trigPin = 2;
+const int echoPin = 2;  // Single signal pin
 
 void setup() {
   Serial.begin(9600);
   Serial.println("ROBO-01 Ultrasonic Sensor Test");
-
-  pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);
+  Serial.print("Using pin: ");
+  Serial.println(trigPin);
 }
 
 void loop() {
@@ -38,6 +38,9 @@ void loop() {
 }
 
 long measureDistance() {
+  // For single-pin sensor, switch to OUTPUT mode
+  pinMode(trigPin, OUTPUT);
+
   // Send ultrasonic pulse
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
@@ -45,8 +48,11 @@ long measureDistance() {
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
 
-  // Read echo pulse duration
-  long duration = pulseIn(echoPin, HIGH);
+  // Switch to INPUT mode to read echo
+  pinMode(echoPin, INPUT);
+
+  // Read echo pulse duration (timeout after 30ms = ~5m max range)
+  long duration = pulseIn(echoPin, HIGH, 30000);
 
   // Calculate distance in cm
   // Speed of sound: 343 m/s = 0.0343 cm/µs

@@ -75,11 +75,14 @@ AF_DCMotor motorRight(2);  // M2 port
 
 Motor ports (M1-M4) are configurable based on physical wiring. Always verify during assembly.
 
-**Sensor Pin Conventions:**
-- Ultrasonic: Trigger on digital pin 9, Echo on pin 10 (verify with kit docs)
-- Line sensors: Analog pins A0 (left) and A1 (right) (verify with kit docs)
+**Sensor Pin Conventions (VERIFIED):**
+- **Ultrasonic sensor**: Digital pin 2 (3-pin single signal connection)
+- **Line sensors**: Analog pins A0 (left) and A1 (right) (not yet verified)
 
-Pin assignments in example sketches are **placeholders** - actual pins depend on the physical shield/board configuration.
+**Motor Shield Servo Header:**
+- Row labeled "1" → Arduino pin 10
+- Row labeled "2" → Arduino pin 9
+- Ultrasonic sensor connects directly to digital pin 2 (not servo header)
 
 ### Code Patterns
 
